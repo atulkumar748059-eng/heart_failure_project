@@ -1,23 +1,25 @@
 # Heart Failure Survival Analysis
 
-This project analyzes survival patterns among patients with heart failure using the **Heart Failure Clinical Records Dataset** from the UCI Machine Learning Repository.
+This project focuses on understanding survival patterns among patients suffering from heart failure. Using the **Heart Failure Clinical Records Dataset** from the UCI Machine Learning Repository, the analysis applies statistical survival analysis techniques to identify clinical factors associated with mortality risk.
 
-The analysis applies statistical survival analysis techniques to identify clinical factors associated with mortality risk and understand differences in patient survival over time.
+---
 
 ## Project Goals
 
-- Explore and understand the structure of the dataset
+- Explore the structure and characteristics of the dataset
 - Perform exploratory data analysis (EDA)
-- Estimate survival probabilities using the **Kaplan-Meier estimator**
-- Compare survival distributions using the **Log-Rank test**
-- Identify mortality risk factors using the **Cox Proportional Hazards model**
-- Interpret statistical findings in a clinical context
+- Apply **Kaplan-Meier survival analysis** to estimate survival probabilities
+- Use **Log-Rank tests** to compare survival between patient groups
+- Fit a **Cox Proportional Hazards model** to identify significant predictors of mortality
+- Interpret statistical findings in the context of patient survival and clinical risk
 
-## Dataset
+---
 
-The dataset contains clinical records for **299 patients with heart failure**.
+## Dataset Description
 
-It includes demographic characteristics, clinical measurements, comorbidities, and patient survival information.
+The dataset contains clinical records of **299 patients with heart failure**, collected from the UCI Machine Learning Repository.
+
+Each observation contains demographic characteristics, clinical measurements, comorbidities, and information about patient survival.
 
 ### Key Variables
 
@@ -37,69 +39,84 @@ It includes demographic characteristics, clinical measurements, comorbidities, a
 | `time` | Follow-up period in days |
 | `DEATH_EVENT` | Mortality indicator (1 = died, 0 = survived) |
 
-**Source:** [UCI Machine Learning Repository – Heart Failure Clinical Records](https://archive.ics.uci.edu/ml/datasets/Heart+Failure+Clinical+Records)
+**Dataset Source:**  
+https://archive.ics.uci.edu/ml/datasets/Heart+Failure+Clinical+Records
+
+---
 
 ## Methodology
 
 ### 1. Data Preprocessing
 
-- Loaded and inspected the dataset
-- Checked data types and missing values
-- Examined descriptive statistics
-- Prepared variables for survival analysis
+The dataset was first inspected and prepared for analysis.
+
+Steps included:
+
+- Checking the structure and data types
+- Identifying missing values
+- Examining descriptive statistics
+- Preparing variables for survival analysis
 
 ### 2. Exploratory Data Analysis
 
-EDA was performed to understand:
+Exploratory analysis was conducted to understand the distribution of clinical characteristics and their relationship with mortality.
 
-- Distribution of clinical variables
+Visualizations and summary statistics were used to examine:
+
+- Patient demographics
+- Clinical measurements
+- Comorbidities
 - Mortality patterns
-- Relationships between clinical indicators and mortality
 - Differences between patient groups
 
 ### 3. Kaplan-Meier Survival Analysis
 
-The **Kaplan-Meier estimator** was used to estimate the probability of survival over time.
+The **Kaplan-Meier estimator** was used to estimate the probability of survival over the follow-up period.
 
-Survival curves were examined for different patient characteristics to identify differences in survival patterns.
+Survival curves were generated to examine differences in survival between groups based on selected clinical and demographic characteristics.
 
 ### 4. Log-Rank Test
 
 The **Log-Rank test** was used to statistically compare survival distributions between groups.
 
-For example, survival curves can be compared between patients with and without:
+Examples of comparisons include patients with and without:
 
 - Diabetes
 - High blood pressure
 - Anaemia
 - Smoking history
-- Low vs. high ejection fraction
+
+Survival groups can also be defined using clinical thresholds such as ejection fraction or serum creatinine.
 
 ### 5. Cox Proportional Hazards Model
 
-A **Cox Proportional Hazards regression model** was fitted to investigate the relationship between clinical characteristics and mortality risk.
+A **Cox Proportional Hazards regression model** was fitted to investigate the relationship between patient characteristics and mortality risk.
 
-The model provides **hazard ratios (HRs)** that quantify how changes in explanatory variables are associated with the hazard of death.
+The model produces **hazard ratios (HRs)**, which indicate the relative change in the hazard of death associated with explanatory variables.
+
+---
 
 ## Results
 
-The analysis indicates that several clinical characteristics are associated with differences in survival outcomes.
+The analysis suggests that several clinical characteristics are associated with differences in survival outcomes.
 
-In particular:
+Key findings include:
 
-- **Lower ejection fraction** is associated with increased mortality risk.
-- **Higher serum creatinine** is associated with poorer survival outcomes.
-- Differences in survival patterns can also be observed across several patient characteristics and comorbidities.
+- **Lower ejection fraction** is associated with a higher risk of mortality.
+- **Higher serum creatinine levels** are associated with poorer survival outcomes.
+- Differences in survival patterns can be observed across several clinical characteristics and comorbidities.
+- The Cox Proportional Hazards model provides a way to quantify the relationship between these factors and mortality risk while accounting for different follow-up times.
 
-The final notebook contains the statistical results, survival curves, hazard ratios, and visualizations generated during the analysis.
+The Jupyter Notebook contains the detailed statistical results, survival curves, hypothesis tests, hazard ratios, and visualizations generated during the analysis.
 
-> **Note:** The results section should be updated with the exact hazard ratios, p-values, confidence intervals, and Kaplan-Meier/log-rank results obtained from the final analysis.
+> **Note:** Specific hazard ratios, p-values, confidence intervals, and test statistics should be added once the final model results have been finalized.
+
+---
 
 ## Project Structure
 
 ```text
 Heart_Failure_Project/
-│
 ├── heart_failure_project.ipynb
 ├── heart_failure_clinical_records_dataset.csv
 ├── requirements.txt
